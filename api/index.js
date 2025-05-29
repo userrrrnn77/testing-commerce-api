@@ -1,10 +1,9 @@
-// api/index.js
+import app from './app.js'
+import serverless from 'serverless-http'
 
-import app from "./app.js";
-import serverless from "serverless-http";
+const handler = serverless(app)
 
-const serverlessHandler = serverless(app);
-
-export default async function handler(event, context) {
-  return await serverlessHandler(event, context);
+export default handler = async (event, context) => {
+    const result = await handler(event, context)
+    return result;
 }
